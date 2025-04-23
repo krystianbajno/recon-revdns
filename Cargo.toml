@@ -1,0 +1,18 @@
+[package]
+name = "recon-revdns"
+version = "0.1.0"
+edition = "2021"
+authors = ["Krystian Bajno"]
+description = "A tool for performing reverse DNS lookups on IP addresses"
+readme = "README.md"
+license = "MIT"
+
+[dependencies]
+clap = { version = "4.4", features = ["derive"] }
+trust-dns-client = "0.23"
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = 3
+strip = true
